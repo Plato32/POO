@@ -39,6 +39,41 @@ class Email:
         print("El dominio ingresado es {}".format(self.__dominio))
         self.__tipo_dominio=__cadena[1]
         print("El tipo de dominio ingresado es {}".format(self.__tipo_dominio))
+
+    def busca(self):
+        archivo=open("datos.csv")
+        reader=csv.reader(archivo)
+
+        for linea in reader:
+            cad=str(linea).split("@")
+            id=cad[0]
+            cad=cad[1].split(".")
+            dominio=cad[0]
+            tipo_dominio=cad[1]
+            e=Email(id,dominio,tipo_dominio,0)
+            lista.append(e)
+        archivo.close()
+
+        archivo=open("datos.csv")
+        reader=csv.reader(archivo)
+        idb="['"+input("Ingrese ID para buscar ")
+
+        c=0
+        for linea in reader:
+
+            idl=str(linea).split("@")  
+            #print(linea)
+            #print(idl[0])
+            
+            if idl[0] == idb:
+                c += 1
+
+        #print("Cantidad de personas con ID {}'] es: {}".format(idb,c))
+        if c > 0:
+            print("El identificador se repite {} ves/ces".format(c))
+        else:
+            print("El identificador no se repite")
+        archivo.close()
         
        
 if __name__ == '__main__':
@@ -58,36 +93,6 @@ if __name__ == '__main__':
     mail=input("Ingrese email ")
     e.divemail(mail)
 
-    archivo=open("datos.csv")
-    reader=csv.reader(archivo)
-
-    for linea in reader:
-        cad=str(linea).split("@")
-        id=cad[0]
-        cad=cad[1].split(".")
-        dominio=cad[0]
-        tipo_dominio=cad[1]
-        e=Email(id,dominio,tipo_dominio,0)
-        lista.append(e)
-    archivo.close()
-
-    archivo=open("datos.csv")
-    reader=csv.reader(archivo)
-    idb="['"+input("Ingrese ID para buscar ")
-
-    c=0
-    for linea in reader:
-
-        idl=str(linea).split("@")  
-        #print(linea)
-        #print(idl[0])
-        
-        if idl[0] == idb:
-            c += 1
+    e.busca()
 
     
-    if c > 0:
-        print("El identificador se repite {} ves/ces".format(c))
-    else:
-        print("El identificador no se repite")
-    archivo.close()
