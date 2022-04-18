@@ -85,7 +85,7 @@ if __name__ == '__main__':
         if idl[0] == idb:
             c += 1
 
-    print("Cantidad de personas con ID {}'] es: {}".format(idb,c))
+    
     if c > 0:
         print("El identificador se repite {} ves/ces".format(c))
     else:
