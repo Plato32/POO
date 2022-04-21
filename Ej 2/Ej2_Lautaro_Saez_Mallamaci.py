@@ -1,4 +1,6 @@
+from posixpath import split
 import string
+import csv
 
 
 class Viajero_Frecuente:
@@ -15,18 +17,35 @@ class Viajero_Frecuente:
         self.__nombre = nombre
         self.__apellido = apellido
         self.__millas_acum = millas_acum
+        print(self.__nombre)
+
+    
 
 if __name__ == '__main__':
+    
+    archivo = open('datos 2.csv')
+    reader = csv.reader(archivo)
 
-    lista=[]
+    for fila in reader:
+        cad=str(fila).split(",")
+        numvi = cad[0]
+        Dni=cad[1]
+        Nombre=cad[2]
+        Apellido=cad[3]
+        Millas_acum=cad[4]
+        e=Viajero_Frecuente(numvi,Dni,Nombre,Apellido,Millas_acum)
+    archivo.close()
+    
+
+    ''''lista=[]
     numvi=input("Ingrese numero del viajero ")
     Dni=string(input("Ingrese dni del viajero "))
     Nombre=input("Ingrese nombre del viajero ")
     Apellido=input("Ingrese apellido del viajero")
     Millas_acum=input("Ingrese cant millas ")
-
-    e=Viajero_Frecuente(numvi,Dni,Nombre,Apellido,Millas_acum)
+    '''
     
+
 '''
 Listas
 
@@ -62,4 +81,5 @@ b- Acumular Millas.
 c- Canjear Millas.
 
 3- Represente el almacenamiento en memoria para la lista cargada con 4 viajeros.'''
+
     
