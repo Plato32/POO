@@ -1,0 +1,50 @@
+from Camas import Cama
+from ManejadorCamas import Manejadorcamas
+from Medicamentos import Medicamento
+from ManejadorMedicameto import Manejadormedicamento
+
+
+
+if __name__ == '__main__':
+    
+    
+    mc=Manejadorcamas()
+    # mc.cargac()
+    mm=Manejadormedicamento()
+    # mm.cargam()
+    N=input("Ingrese el nombre del paciente a al que se dara de alta: ")
+    A=input("Ingrese el apellido del paciente a al que se dara de alta: ")
+    print("")
+    # N="Luis" ///Prueba
+    # A="Perez" ///Prueba
+    AyP=(A+", "+N)
+    Ib=mc.buscaAyN(AyP)
+    b=mc.getdatos(Ib,AyP)
+    
+    if(b!=-1):
+        mm.buscaid(b)
+    print("")
+    dgn=input("Ingrese el diagnostico a mostrar: ")
+    # dgn=" Neumonitis" ///Prueba
+    print("")
+    mc.getdiagnostico(dgn)
+       
+
+
+
+
+    
+    
+
+
+
+
+
+
+'''
+Dado un el nombre y apellido de un paciente internado al que se le da el alta, listar los 
+datos del paciente y los medicamentos que deberá devolver, indicando el precio de 
+cada medicamento y el total que deberá abonar en caso de no devolverlos'''
+    
+  
+   
