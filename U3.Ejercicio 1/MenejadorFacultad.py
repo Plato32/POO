@@ -1,0 +1,2 @@
+class ManejadorFacultades:
+    __lista=[]
