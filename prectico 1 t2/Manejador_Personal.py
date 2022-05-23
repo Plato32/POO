@@ -78,7 +78,7 @@ class ManejadorPersonal:
     def mostrarmenor(self):
         list=[]
         list=self.__arrayp
-        menor=max(list)
+        menor=min(list)
         print("El suledo meno pertenece a {} {} con u sueldo de ${}".format(menor.getape(),menor.getnom(),menor.getliquidar()))
             
             # print("Apellido:{} Nombre:{} Comision:{} \n".format(el.getape(),el.getnom(),el.getcomision()))
